@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<head>
+    <title>Барахолка | Portfolio</title>
+    <link rel="stylesheet" href="{% static 'flea_market/css/index.css' %}" type="text/css">
+</head>
+<header>
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-item-link" href="#">Каталог</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item-link" href="#">Новости</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item-link" href="#">Автобарахолка</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item-link" href="#">Дома и квартиры</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item-link" href="#">Услуги</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item-link nav-item-link--active" href="#">Барахолка</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-item-link" href="#">Форум</a>
+        </li>
+    </ul>
+    <div class="othernav">
+        <div class="othernav-money">
+            $&nbsp;2.75
+        </div>
+        <div class="othernav-weather">
+            <i class="othernav-weather-ico"></i>
+            <span class="othernav-weather-text">-1</span>
+        </div>
+    </div>
+</header>
+{% if latest_ad_list %}
+    <ul>
+    {% for ad in latest_ad_list %}
+        <li><a href="{% url 'flea_market:detail' ad.id %}">{{ ad.name_product }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No ads are available.</p>
+{% endif %}

@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&display=swap');
+body{
+    margin: 0;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    position: relative;
+    background-color: #f4f4f4;
+}
+header:after{
+
+}
+
+.nav{
+    display: flex;
+    background-color: #fd2;
+    padding-left: 20px;
+}
+
+.nav-item{
+    /*position: relative;*/
+}
+
+.nav-item-link{
+    display: block;
+    position: relative;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+    padding: 11px 15px 13px 15px;
+    white-space: nowrap;
+}
+.nav-item-link:after,
+.nav-item-link--active:after{
+    content: '';
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    right: 0;
+    background-color: blue;
+}
+
+.nav-item-link:hover:after{
+    display: block;
+}
+
+.nav-item-link--active:after{
+    display: block;
+}
+
+.othernav{
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.othernav-money{
+    color: red;
+    margin-right: 15px;
+}
+
+.othernav-weather{
+    display: flex;
+}
+
+.othernav-weather-ico{
+    width: 32px;
+    height: 32px;
+    border-image: url("../img/ico/commerce-day.jpg") !important;
+    background-repeat: no-repeat;
+    /*background-position: -192px 0;*/
+}
