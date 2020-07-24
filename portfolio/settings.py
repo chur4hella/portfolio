@@ -125,3 +125,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+PROJECT_DIR = os.path.dirname(__file__)
+
+location = lambda x: os.path.join(os.path.dirname(os.path.realpath(__file__)), x)
+
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# STATIC_ROOT = location('static')
+MEDIA_ROOT = location('public/media')
+
+MEDIA_URL = '/media/'
+
+LOGIN_URL = '/flea-market/login/'

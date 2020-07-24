@@ -19,6 +19,7 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     url(r'^resume/', include('resume.urls')),
-    url(r'^fleamarket/', include('flea_market.urls')),
+    url(r'^flea-market/', include('flea_market.urls')),
+    # url(r'^accounts/', include('flea_market.urls')),
     path('admin/', admin.site.urls),
 ]

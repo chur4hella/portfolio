@@ -1,0 +1,117 @@
+{% extends 'flea_market/base.html' %}
+{% load staticfiles %}
+{% block title %}Категория{% endblock %}
+{% block styles %}<link rel="stylesheet" href="{% static 'flea_market/css/flea_market_products.css' %}" type="text/css">{% endblock styles %}
+{% block main %}
+<main class="main">
+  <div class="main-content">
+    <div class="main-content-filter">
+      <form class="filter">
+        <div class="filter__btn-close"></div>
+        <div class="filter-row">
+          <div class="filter-row-title">Название</div>
+          <input class="text-field text-field_search" name="search-category" type="text" placeholder="Напр.: samsung" autocomplete="off">
+        </div>
+        <div class="filter-row">
+          <div class="filter-row-title">Цена, BYN</div>
+          <div class="filter-row-group">
+            <input class="number-field number-field_price number-field_price_left" type="number" name="price-min" placeholder="от">
+            <input class="number-field number-field_price number-field_price_right" type="number" name="price-max" placeholder="до">
+          </div>
+        </div>
+        <div class="filter-row">
+          <div class="filter-row-title">Продавец</div>
+          <div class="filter-row-item">
+            <label class="label-btn" for="private-person">Частное лицо</label>
+            <input id="private-person" class="checkbox-btn" type="checkbox" name="private-person">
+          </div>
+          <div class="filter-row-item">
+            <label class="label-btn" for="company">Компания</label>
+            <input id="company" class="checkbox-btn" type="checkbox" name="company">
+          </div>
+        </div>
+        <div class="filter-row">
+          <div class="filter-row-title">Местонахождение</div>
+          <div class="filter-row-item">
+            <select class="select select_location" name="region">
+              <option selected value="0">Область</option>
+            </select>
+          </div>
+          <div class="filter-row-item">
+            <select class="select select_location" name="city">
+              <option selected value="0">Город</option>
+            </select>
+          </div>
+        </div>
+        <div class="filter-row">
+          <button class="filter-btn filter-btn_search" value="Найти">Найти</button>
+        </div>
+        <div class="filter-row">
+          <button class="filter-btn filter-btn_clear" value="Очистить">Очистить</button>
+        </div>
+      </form>
+    </div>
+    <div class="main-content-products">
+        <button class="filter-activation-btn">
+          <span class="filter-activation-btn__txt">Фильтры</span>
+        </button>
+      <div class="sorting">
+        <select class="select" name="sorting-1">
+          <option selected value="0">Все</option>
+          <option value="1">Продам</option>
+          <option value="2">Куплю</option>
+          <option value="3">Обмен</option>
+          <option value="4">Услуга</option>
+          <option value="5">Аренда</option>
+          <option value="6">Закрыто</option>
+        </select>
+        <select class="select" name="sorting-2">
+          <option selected value="0">Актуальное</option>
+          <option value="1">Дешевые</option>
+          <option value="2">Дорогие</option>
+          <option value="3">Новые</option>
+          <option value="4">Старые</option>
+        </select>
+      </div>
+      <div class="products">
+        <a class="products-item" href="">
+          <div class="products-item-img">
+            <img class="product-img" src="{% static 'flea_market/img/SEGA-Mega-Drive-Mini-19.jpg' %}">
+            <div class="count-img">7 фото</div>
+            <div class="type-deal type-deal_sale">Продажа</div>
+            <div class="product-bookmark"></div>
+          </div>
+          <div class="products-item-info">
+            <div class="product-username">UserNameUserNameUserName</div>
+            <div class="product-upped">
+              <div class="product-upped-ico"></div>
+              <div class="product-upped-txt">1 минут назад</div>
+            </div>
+            <div class="product-title">Samsung</div>
+            <div class="product-price">
+              <div class="product-price-BYN">1500 р.</div>
+              <div class="product-price-other">750 $ / 700 €</div>
+            </div>
+            <div class="product-city">
+              <div class="product-city-ico"></div>
+              <div class="product-city-txt">Брест</div>
+            </div>
+            <div class="product-description">ASUS MaxPro с самой мощной батареей в идеальном состоянии. Ещё на гарантии.
+              Телефон просто бомба. 8-ядерный процессор 8*1.8Ггц Батарея 5000Mah-держит минимум двое суток. 6" FuLL HD
+              Дисплей. Оперативка 3гбт. Встроенная память 32гбт. Телефон застрахова</div>
+          </div>
+        </a>
+      </div>
+      <div class="pagination">
+        <a class="pagination-next"><span>Слудеющие 20</span></a>
+        <select class="select pagination-select" name="page">
+          <option selected value="1">1</option>
+          <option value="2">2</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock main %}
+{% block js %}<script src="{% static 'flea_market/js/flea_market_products_activationFilter.js' %}"></script>{% endblock js%}
+</html>

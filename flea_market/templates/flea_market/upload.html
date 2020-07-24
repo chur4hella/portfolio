@@ -1,0 +1,7 @@
+<form action="{% url 'flea_market:upload_ad' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form_user }}
+    {{ form_ad }}
+    {{ form_img }}
+    <input type="submit" value="Отправить">
+</form>

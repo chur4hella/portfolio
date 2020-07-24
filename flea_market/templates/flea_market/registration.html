@@ -1,0 +1,11 @@
+{% extends 'flea_market/login.html' %}
+{% load staticfiles %}
+{% block title %}Регистрация{% endblock %}
+{% block action_form %}"{% url 'flea_market:registration' %}"{% endblock %}
+{% block form_title %}Регистрация{% endblock %}
+{% block fields %}
+    <input class="form__field" type="email" name="email" placeholder="Почта" autocomplete="off">
+{% endblock %}
+{% block btn %}<input class="form__btn" type="submit" value="Регистрация">{% endblock %}
+{% block links %}<a class="form__link" href="{% url 'flea_market:login' %}">У меня есть профиль. Войти</a> {% endblock %}
+
