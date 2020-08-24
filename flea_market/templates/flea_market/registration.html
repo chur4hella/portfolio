@@ -4,8 +4,12 @@
 {% block action_form %}"{% url 'flea_market:registration' %}"{% endblock %}
 {% block form_title %}Регистрация{% endblock %}
 {% block fields %}
-    <input class="form__field" type="email" name="email" placeholder="Почта" autocomplete="off">
+    <div class="form__row">
+        <input class="form__field" id="email" type="email" name="email" placeholder="Почта" autocomplete="off">
+        <div class="form__error" id="error-email"></div>
+    </div>
 {% endblock %}
 {% block btn %}<input class="form__btn" type="submit" value="Регистрация">{% endblock %}
 {% block links %}<a class="form__link" href="{% url 'flea_market:login' %}">У меня есть профиль. Войти</a> {% endblock %}
+{% block scripts %}<script src="{% static 'flea_market/js/validationRegistration.js' %}"></script>{% endblock %}
 

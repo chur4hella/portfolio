@@ -68,6 +68,29 @@ body{
 .form__field:focus{
     border: 1px solid #525252;
 }
+.form__field_error{
+    border-color: red;
+    color: red;
+    background-color: rgba(255, 0, 0, .1);
+}
+.form__field_error:hover,
+.form__field_error:focus{
+    border-color: red;
+}
+.form__field_verified{
+    border-color: green;
+    color: green;
+    background-color: rgba(0, 128, 0, .1);
+}
+.form__field_verified:hover,
+.form__field_verified:focus{
+    border-color: green;
+}
+.form__error{
+    font-size: 14px;
+    color: red;
+    margin-bottom: 10px;
+}
 .form__btn{
     width: 100%;
     padding: 8px;

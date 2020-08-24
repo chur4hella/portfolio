@@ -1,11 +1,12 @@
 {% load staticfiles %}
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="csrf-token" content="{{ csrf_token }}">
     <title>{% block title %}Вход{% endblock %} | Portfolio</title>
     <link rel="stylesheet" href="{% static 'flea_market/css/authentication.css' %}" type="text/css">
 </head>
@@ -13,14 +14,20 @@
     <form class="form" action={% block action_form %}"{% url 'flea_market:login' %}"{% endblock action_form %} method="post">
     {% csrf_token %}
         <h2 class="form__title">{% block form_title %}Вход{% endblock %}</h2>
-        <input class="form__field" name="username" type="text" placeholder="Логин" autocomplete="off">
+    <div class="form__row">
+        <input class="form__field" id="username" name="username" type="text" placeholder="Логин" autocomplete="off">
+        <div class="form__error" id="error-username"></div>
+    </div>
         {% block fields %}{% endblock %}
-        <input class="form__field" name="password" type="password" placeholder="Пароль">
+    <div class="form__row">
+        <input class="form__field" id="password" name="password" type="password" placeholder="Пароль">
+    </div>
         {% block btn %}<input class="form__btn" value="Войти" type="submit">{% endblock %}
         {% block links %}
             <a class="form__link" href="{% url 'flea_market:registration' %}">Зарегистрироваться</a>
             <a class="form__link" href="#">Я не помню пароль</a>
         {% endblock %}
     </form>
+{% block scripts %}{% endblock %}
 </body>
 </html>

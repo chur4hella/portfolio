@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
@@ -63,11 +64,24 @@ def registration(request):
         return render(request, 'flea_market/registration.html')
     elif request.method == 'POST':
         # to do errors uniq user data
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
-        User.objects.create_user(username, email, password)
-        return redirect(reverse('flea_market:login'))
+        # username = request.POST['username']
+        # email = request.POST['email']
+        # password = request.POST['password']
+        # User.objects.create_user(username, email, password)
+        # return redirect(reverse
+        response_data = {
+            'category': request.POST.get('category'),
+        }
+        field_value = request.POST.get('value')
+        print(request.POST)
+        if response_data['category'] == 'username' and len(User.objects.filter(username=field_value)):
+            response_data['error'] = 'Имя уже существует'
+        elif response_data['category'] == 'email' and len(User.objects.filter(email=field_value)) > 0:
+            print('email call')
+            response_data['error'] = 'E-mail уже существует'
+        elif request.POST['category'] == 'submit_form':
+            pass
+        return JsonResponse(response_data)
 
 
 # def upload_ad(request):
